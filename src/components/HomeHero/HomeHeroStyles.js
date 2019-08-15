@@ -48,12 +48,20 @@ const StyledButton = styled(Button)`
   width: 250px;
 `;
 
+const CenterSpinner = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+`;
+
 export {
   BackGroundHeading,
   Wrapper,
   TitleHeading,
-  TitleSub ,
+  TitleSub,
   Price,
   WordWrapper,
-  StyledButton
+  StyledButton,
+  CenterSpinner
 };
