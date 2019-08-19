@@ -1,22 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import HeaderNav from '../HeaderNav/HeaderNav';
+import { useDispatch } from 'react-redux';
+import { fetchProducts } from '../../redux/products/productActions';
 import Home from '../Home/Home';
-import axios from '../../api/axios';
-
 const App = () => {
-  const [products, setProducts] = useState([]);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     (async () => {
-      const response = await axios.get('/products');
-      setProducts(response.data);
+      dispatch(fetchProducts());
     })();
-  },[]);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div>
       <HeaderNav />
-      <Home products={products}/>
+      <Home />
     </div>
   );
 };
