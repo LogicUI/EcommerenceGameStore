@@ -3,28 +3,25 @@ import HomeHero from '../HomeHero/HomeHero';
 import Product from '../PopularProduct/PopularProduct';
 import { Pagination } from 'react-bootstrap';
 import PaginationNumber from '../PaginationNumber/PaginationNumber';
+import { useSelector } from 'react-redux';
+import usePagination from '../CustomHooks/usePagination';
 
-const Home = ({ products }) => {
-  const [currentPage, setCurrentpage] = useState(1);
-  const itemsPerPage = 4;
+const Home = () => {
+  const { popularProducts } = useSelector((state) => ({
+    popularProducts: state.products.productList.filter(
+      (product) => product.rating > 3
+    )
+  }));
 
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-
-  const filterItemsBy = (callback) => {
-    return products.filter(callback).slice(indexOfFirstItem, indexOfLastItem);
-  };
-
-
-  const paginate = (pageNumber) => setCurrentpage(pageNumber);
+  const [currentPage, paginate] = usePagination(4);
 
   return (
     <div>
       <HomeHero />
       Most popular
       <PaginationNumber
-        itemsPerPage={itemsPerPage}
-        totalItems={products.length}
+        itemsPerPage={4}
+        totalItems={popularProducts.length}
         paginate={paginate}
       />
       <div
@@ -32,9 +29,11 @@ const Home = ({ products }) => {
           display: 'flex'
         }}
       >
-        {filterItemsBy((product) => product.rating > 3).map((product) => (
-          <Product {...product} />
-        ))}
+        {popularProducts
+          .slice(currentPage.indexOfFirstItem, currentPage.indexOfLastItem)
+          .map((product) => (
+            <Product {...product} />
+          ))}
       </div>
     </div>
   );
