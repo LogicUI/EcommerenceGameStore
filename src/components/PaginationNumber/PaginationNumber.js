@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Pagination } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
-const PaginationNumber = ({ itemsPerPage, totalItems, paginate }) => {
+const PaginationNumber = ({ itemsPerPage, totalItems, paginate, active }) => {
   const pageNumbers = [];
 
   for (let index = 1; index <= Math.ceil(totalItems / itemsPerPage); index++) {
@@ -12,7 +12,11 @@ const PaginationNumber = ({ itemsPerPage, totalItems, paginate }) => {
     <Pagination>
       {pageNumbers.map((page) => {
         return (
-          <Pagination.Item key={page} onClick={() => paginate(page)}>
+          <Pagination.Item
+            key={page}
+            active={page === active}
+            onClick={() => paginate(page)}
+          >
             {page}
           </Pagination.Item>
         );
