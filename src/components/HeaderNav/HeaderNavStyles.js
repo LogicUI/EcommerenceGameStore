@@ -2,9 +2,9 @@ import { Navbar, Form } from 'react-bootstrap';
 import styled from 'styled-components';
 import palette from '../../palette';
 import { ReactComponent as Search } from '../../Icons/magnifier.svg';
-
 const Nav = styled(Navbar)`
   background-color: ${palette.darkBlack};
+  position: absolute;
 `;
 
 const BrandTitle = styled.h1`
@@ -39,11 +39,4 @@ const SearchIcon = styled(Search)`
   fill: ${palette.gray};
 `;
 
-export {
-  Nav,
-  BrandTitle,
-  BrandSubTitle,
-  Wrapped,
-  Input,
-  SearchIcon
-};
+export { Nav, BrandTitle, BrandSubTitle, Wrapped, Input, SearchIcon };

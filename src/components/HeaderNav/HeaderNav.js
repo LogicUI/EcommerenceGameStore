@@ -6,8 +6,9 @@ import {
   BrandSubTitle,
   Wrapped,
   Input,
-  SearchIcon
+  SearchIcon,
 } from './HeaderNavStyles';
+import ShoppingCartIcon from "../Cart/Cart";
 
 const HeaderNav = () => {
   return (
@@ -26,6 +27,7 @@ const HeaderNav = () => {
           </InputGroup.Append>
         </InputGroup>
       </Form>
+      <ShoppingCartIcon />
     </Nav>
   );
 };

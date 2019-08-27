@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Pagination } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+
 
 const PaginationNumber = ({ itemsPerPage, totalItems, paginate, active }) => {
   const pageNumbers = [];

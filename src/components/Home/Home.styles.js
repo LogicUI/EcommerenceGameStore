@@ -5,6 +5,12 @@ const FlexWrapper = styled.div`
   flex-direction: ${(props) => (props.column ? 'column' : 'flex')};
 `;
 
+const GridWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minMax(350px, 1fr));
+  justify-items: center;
+`;
+
 const ProductTtile = styled.h1`
   font-family: Merriweather;
   font-size: 36px;
@@ -17,4 +23,4 @@ const ProductHeadings = styled(FlexWrapper)`
   margin-left: 2rem;
 `;
 
-export { FlexWrapper, ProductTtile, ProductHeadings };
+export { FlexWrapper, ProductTtile, ProductHeadings, GridWrapper };
