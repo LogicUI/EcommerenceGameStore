@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
-const ModalComponent = ({ heading, text, onHide, show }) => {
+const ModalComponent = ({ heading, onHide, show ,children}) => {
   return (
     <Modal
       onHide={onHide}
@@ -15,9 +15,9 @@ const ModalComponent = ({ heading, text, onHide, show }) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>
-            {text}
-        </p>
+        <div>
+          {children}
+        </div>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={onHide}>Close</Button>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ShoppingCartIcon, ShoppingCartWrapper } from './CartStyles';
 import ModalComponent from '../ModalComponent/ModalComponent';
+import CartItems from "../CartItem/CartItem";
 
 const Cart = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -16,7 +17,9 @@ const Cart = () => {
         heading="Cart Items"
         show={modalShow}
         onHide={() => setModalShow(false)}
-      />
+      >
+        <CartItems />
+      </ModalComponent> 
     </ShoppingCartWrapper>
   );
 };
